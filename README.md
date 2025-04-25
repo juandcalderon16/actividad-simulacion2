@@ -2,8 +2,8 @@
 
 |Integrante|correo|usuario github|
 |---|---|---|
-|Nombre completo integrante 1|correo integrante 1|gihub user integrante 1|
-|Nombre completo integrante 2|correo integrante 2|gihub user integrante 2|
+|Juan Diego Calderon Bermeo|juand.calderon@udea.edu.co|juandcalderon16|
+|Ana Maria Vega Angarita|ana.vega@udea.edu.co|anavegaa|
 
 ## Instrucciones
 
