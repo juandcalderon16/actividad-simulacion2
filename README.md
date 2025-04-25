@@ -45,19 +45,10 @@ with the -S flag) to game the scheduler and obtain 99% of the CPU over a particu
 
    Para garantizar que el trabajo largo obtenga al menos 5% de la CPU, el boosting debe ocurrir con una frecuencia que permita que el trabajo largo tenga al menos 10 ms (1 quantum) de CPU al menos 5% del tiempo.
 
-Dado que el quantum es de 10 ms, y queremos que el trabajo obtenga al menos 5% del tiempo, se requiere que en cada intervalo de 20 unidades de tiempo (de 10 ms), el trabajo largo obtenga al menos 1 quantum (10 ms) de tiempo de CPU.
+   Dado que el quantum es de 10 ms, y queremos que el trabajo obtenga al menos 5% del tiempo, se requiere que en cada intervalo de 20 unidades de tiempo (de 10 ms), el trabajo largo obtenga al menos 1 quantum (10 ms) de tiempo de CPU.
 
-Por lo tanto, el boosting debe ocurrir cada 200 ms (porque 
-20
-×
-10
- 
-ms
-=
-200
- 
-ms
-20×10ms=200ms) para garantizar que el trabajo largo obtenga al menos el 5% de la CPU.
+   Por lo tanto, el boosting debe ocurrir cada 200 ms (porque 20×10ms=200ms ) para garantizar que el trabajo largo obtenga al menos el 5% de la CPU.
+   `./mlfq.py -B 200 -c`
 
 7. One question that arises in scheduling is which end of a queue to add a job that just finished I/O; the -I flag changes this behavior
 for this scheduling simulator. Play around with some workloads and see if you can see the effect of this flag.
