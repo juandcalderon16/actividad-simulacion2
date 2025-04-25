@@ -53,11 +53,11 @@ with the -S flag) to game the scheduler and obtain 99% of the CPU over a particu
 7. One question that arises in scheduling is which end of a queue to add a job that just finished I/O; the -I flag changes this behavior
 for this scheduling simulator. Play around with some workloads and see if you can see the effect of this flag.
 
-   <details>
-   <summary>Answer</summary>
-   Coloque aqui su respuerta
-   </details>
-   <br>
+   en las imagenes observamos que el tiempo con -I es menor usando el siguiente comando 
+
+   `python mlfq.py -n 2 -Q 10,20 -A 1,2 -j 2 -l 0,50,5:0,50,0 -s 2 -c -I`
+
+   
 
 ## Conclusions
 
