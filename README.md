@@ -62,11 +62,14 @@ for this scheduling simulator. Play around with some workloads and see if you ca
    en las imagenes observamos que el tiempo con -I es menor usando el siguiente comando 
 
    `python mlfq.py -n 2 -Q 10,20 -A 1,2 -j 2 -l 0,50,5:0,50,0 -s 2 -c -I`
-
+   1. Sin -I
    ![Captura de pantalla de la aplicación](images/punto6,1.png)
    ![Captura de pantalla de la aplicación](images/punto6,2.png)
+   2. Con -I
    ![Captura de pantalla de la aplicación](images/punto6,3.png)
    ![Captura de pantalla de la aplicación](images/punto6,4.png)
+
+   Podemos observar que puede tener un impacto significativo en el tiempo de respuesta y el rendimiento general del sistema al agregar -I. Los resultados experimentales sugieren que insertar al principio de la cola (-I) puede llevar a tiempos de finalización más rápidos en ciertos escenarios.
 
    
 
