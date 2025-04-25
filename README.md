@@ -61,13 +61,6 @@ for this scheduling simulator. Play around with some workloads and see if you ca
 
 ## Conclusions
 
-Conclusiones Generales sobre el Planificador MLFQ:
-
-Comportamiento Round-Robin: Se puede configurar un planificador MLFQ para que se comporte de manera muy similar a un Round-Robin ajustando los parámetros para que todos los trabajos tengan la misma prioridad, el mismo quantum en las colas y desactivando mecanismos de "boost" de prioridad. Esto se ilustra con el comando que utiliza un solo trabajo de tipo Round-Robin con un quantum fijo.
-Posibilidad de "Gaming" del Planificador: Las reglas de prioridad más antiguas (4a y 4b) pueden ser explotadas por ciertos tipos de trabajos, especialmente aquellos que realizan operaciones de E/S. Al completar la E/S, estos trabajos pueden regresar a su nivel de prioridad anterior con su tiempo asignado intacto, permitiéndoles potencialmente acaparar una gran parte de la CPU en detrimento de otros trabajos. El segundo comando demuestra cómo un trabajo intensivo en E/S puede obtener una porción desproporcionada de la CPU.
-Garantía de Progreso Mínimo: Para evitar el starvation (inanición) de trabajos de larga duración, se puede utilizar un mecanismo de "boost" de prioridad periódico. La frecuencia de este "boost" debe ser cuidadosamente calculada para asegurar que incluso los trabajos de baja prioridad reciban una porción mínima de tiempo de CPU. El tercer ejemplo calcula la frecuencia necesaria para garantizar un 5% de uso de CPU a un trabajo largo.
-Impacto de la Ubicación de Inserción tras E/S: La política de dónde se inserta un trabajo en la cola al finalizar una operación de E/S (al principio o al final) puede tener un impacto significativo en el tiempo de respuesta y el rendimiento general del sistema. Los resultados experimentales sugieren que insertar al principio de la cola (-I) puede llevar a tiempos de finalización más rápidos en ciertos escenarios.
-
 estos ejercicios demuestran la flexibilidad del planificador MLFQ y cómo diferentes parámetros y políticas pueden influir drásticamente en el comportamiento del sistema en términos de equidad, rendimiento y capacidad de respuesta. También resaltan la importancia de comprender las posibles interacciones entre las características del planificador y las características de las cargas de trabajo.
 
 
