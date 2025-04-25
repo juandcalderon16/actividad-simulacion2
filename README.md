@@ -34,7 +34,9 @@ haya ningún tipo de boost que altere las prioridades.
 
    Este comando ejecuta una simulación con un solo trabajo (de tipo Round-Robin) que tiene un quantum de 10 unidades de tiempo y una asignación de 1 rebanada de tiempo por cola. Se generarán dos trabajos, cada uno con un máximo de 20 unidades de tiempo de tiempo de ejecución y una frecuencia de I/O muy baja (1000 unidades de tiempo). Además, las solicitudes de I/O tomarán 5 unidades de tiempo cada una.
 
-4. Craft a workload with two jobs and scheduler parameters so that one job takes advantage of the older Rules 4a and 4b (turned on
+   ![Captura de pantalla de la aplicación](images/punto3.png)
+
+5. Craft a workload with two jobs and scheduler parameters so that one job takes advantage of the older Rules 4a and 4b (turned on
 with the -S flag) to game the scheduler and obtain 99% of the CPU over a particular time interval.
 
    Este comando configura una situación donde el Trabajo 2 (que hace I/O) se beneficia de las Reglas 4a y 4b y obtiene el 99% de la CPU al regresar continuamente a su mismo nivel de prioridad con su allotment intacto, mientras que el Trabajo 1 (sin I/O) utiliza menos CPU debido a que no puede aprovechar estas reglas y su tiempo de ejecución es interrumpido por el otro trabajo.
