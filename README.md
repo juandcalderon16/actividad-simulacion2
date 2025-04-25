@@ -21,20 +21,17 @@ This program, [mlfq.py](mlfq.py), allows you to see how the MLFQ scheduler prese
 
 2. How would you run the scheduler to reproduce each of the examples in the chapter?
    
-   ## MLFQ como Round-Robin 🔄
+   Para configurar el simulador de MLFQ para que se comporte como
+ un planificador Round-Robin, debes asegurarte de que todos los trabajos 
+tengan el mismo nivel de prioridad, que el tiempo de "quantum" 
+(o rebanada de tiempo) sea el mismo para todas las colas, y que no 
+haya ningún tipo de boost que altere las prioridades.
 
-Para lograr que el simulador MLFQ se comporte como un planificador **Round-Robin**, debemos asegurarnos de que todos los procesos jueguen bajo las mismas reglas. Esto implica:
 
-* **Prioridad Uniforme:** 🥇 Todos los trabajos deben tener el **mismo nivel de prioridad**. ¡Aquí no hay favoritos!
-* **Quantum Parejo:** ⏱️ El tiempo de "**quantum**" (o tajada de tiempo) debe ser **idéntico** para todas las colas. Cada proceso recibe su turno justo.
-* **Sin Impulsos:** 🚀 Debemos evitar cualquier tipo de "**boost**" de prioridad que pueda alterar el orden equitativo. ¡Mantengamos la igualdad!
+`./mlfq.py -n 1 -q 10 -a 1 -j 2 -m 20 -M 1000 -i 5 -c`
 
-### Comando para la Simulación 💻
+Este comando ejecuta una simulación con un solo trabajo (de tipo Round-Robin) que tiene un quantum de 10 ms y una asignación de 1 rebanada de tiempo por cola. Se generarán dos trabajos, cada uno con un máximo de 20 ms de tiempo de ejecución y una frecuencia de I/O muy baja (1000 ms). Además, las solicitudes de I/O
 
-El siguiente comando ejecuta una simulación diseñada para emular el comportamiento Round-Robin:
-
-```bash
-./mlfq.py -n 1 -q 10 -a 1 -j 2 -m 20 -M 1000 -i 5 -c
 
 3. How would you configure the scheduler parameters to behave just like a round-robin scheduler?
 
