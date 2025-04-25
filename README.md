@@ -43,7 +43,9 @@ with the -S flag) to game the scheduler and obtain 99% of the CPU over a particu
 
    `./mlfq.py --jlist 0,100,0:50,20,5 -q 10 -S`
 
-6. Given a system with a quantum length of 10 ms in its highest queue, how often would you have to boost jobs back to the highest priority level (with the `-B` flag) in order to guarantee that a single longrunning (and potentially-starving) job gets at least 5% of the CPU?
+   ![Captura de pantalla de la aplicación](images/punto4.png)
+
+7. Given a system with a quantum length of 10 ms in its highest queue, how often would you have to boost jobs back to the highest priority level (with the `-B` flag) in order to guarantee that a single longrunning (and potentially-starving) job gets at least 5% of the CPU?
 
    Para garantizar que el trabajo largo obtenga al menos 5% de la CPU, el boosting debe ocurrir con una frecuencia que permita que el trabajo largo tenga al menos 10 ms (1 quantum) de CPU al menos 5% del tiempo.
 
@@ -52,12 +54,19 @@ with the -S flag) to game the scheduler and obtain 99% of the CPU over a particu
    Por lo tanto, el boosting debe ocurrir cada 200 ms (porque 20×10ms=200ms ) para garantizar que el trabajo largo obtenga al menos el 5% de la CPU.
    `./mlfq.py -B 200 -c`
 
-7. One question that arises in scheduling is which end of a queue to add a job that just finished I/O; the -I flag changes this behavior
+   ![Captura de pantalla de la aplicación](images/punto5.png)
+
+9. One question that arises in scheduling is which end of a queue to add a job that just finished I/O; the -I flag changes this behavior
 for this scheduling simulator. Play around with some workloads and see if you can see the effect of this flag.
 
    en las imagenes observamos que el tiempo con -I es menor usando el siguiente comando 
 
    `python mlfq.py -n 2 -Q 10,20 -A 1,2 -j 2 -l 0,50,5:0,50,0 -s 2 -c -I`
+
+   ![Captura de pantalla de la aplicación](images/punto6,1.png)
+   ![Captura de pantalla de la aplicación](images/punto6,2.png)
+   ![Captura de pantalla de la aplicación](images/punto6,3.png)
+   ![Captura de pantalla de la aplicación](images/punto6,4.png)
 
    
 
