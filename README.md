@@ -20,9 +20,14 @@ This program, [mlfq.py](mlfq.py), allows you to see how the MLFQ scheduler prese
 1. Run a few randomly-generated problems with just two jobs and two queues; compute the MLFQ execution trace for each. Make your life easier by limiting the length of each job and turning off I/Os.
 
 2. How would you run the scheduler to reproduce each of the examples in the chapter?
+✅ El comando ejecutado con dos colas de prioridad. Ambas colas tienen un quantum de 10 unidades de tiempo, y los trabajos pueden permanecer 1 quantum en cada cola antes de ser degradados automáticamente. Se ejecutan dos trabajos generados aleatoriamente, sin operaciones de entrada/salida (I/O), y cada trabajo tiene una duración máxima de 5 unidades de tiempo.
+El Job 0 tuvo prioridad por ser primero en la cola y terminó rápidamente.
 
+El Job 1 tuvo que esperar 1 unidad, pero se ejecutó de corrido porque no hubo competencia ni I/O.
 
-3. How would you configure the scheduler parameters to behave just like a round-robin scheduler?
+El quantum de 10 fue más que suficiente, ya que ningún trabajo necesitó tanto tiempo seguido.
+
+4. How would you configure the scheduler parameters to behave just like a round-robin scheduler?
 
    Para configurar el simulador de MLFQ para que se comporte como
  un planificador Round-Robin, debemos asegurarnos de que todos los trabajos 
