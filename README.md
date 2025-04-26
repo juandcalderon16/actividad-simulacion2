@@ -20,7 +20,9 @@ This program, [mlfq.py](mlfq.py), allows you to see how the MLFQ scheduler prese
 1. Run a few randomly-generated problems with just two jobs and two queues; compute the MLFQ execution trace for each. Make your life easier by limiting the length of each job and turning off I/Os.
 
 2. How would you run the scheduler to reproduce each of the examples in the chapter?
+   
 ✅ El comando ejecutado con dos colas de prioridad. Ambas colas tienen un quantum de 10 unidades de tiempo, y los trabajos pueden permanecer 1 quantum en cada cola antes de ser degradados automáticamente. Se ejecutan dos trabajos generados aleatoriamente, sin operaciones de entrada/salida (I/O), y cada trabajo tiene una duración máxima de 5 unidades de tiempo.
+
 El Job 0 tuvo prioridad por ser primero en la cola y terminó rápidamente.
 
 El Job 1 tuvo que esperar 1 unidad, pero se ejecutó de corrido porque no hubo competencia ni I/O.
@@ -30,9 +32,9 @@ El quantum de 10 fue más que suficiente, ya que ningún trabajo necesitó tanto
    ![Captura de pantalla de la aplicación](images/punto2.png)
       ![Captura de pantalla de la aplicación](images/punto2,2.png)
 
-4. How would you configure the scheduler parameters to behave just like a round-robin scheduler?
+3. How would you configure the scheduler parameters to behave just like a round-robin scheduler?
 
-   Para configurar el simulador de MLFQ para que se comporte como
+✅   Para configurar el simulador de MLFQ para que se comporte como
  un planificador Round-Robin, debemos asegurarnos de que todos los trabajos 
 tengan el mismo nivel de prioridad, que el tiempo de quantum sea el mismo para todas las colas, y que no 
 haya ningún tipo de boost que altere las prioridades.
@@ -44,18 +46,18 @@ haya ningún tipo de boost que altere las prioridades.
 
    ![Captura de pantalla de la aplicación](images/punto3.png)
 
-5. Craft a workload with two jobs and scheduler parameters so that one job takes advantage of the older Rules 4a and 4b (turned on
+4. Craft a workload with two jobs and scheduler parameters so that one job takes advantage of the older Rules 4a and 4b (turned on
 with the -S flag) to game the scheduler and obtain 99% of the CPU over a particular time interval.
 
-   Este comando configura una situación donde el Trabajo 2 (que hace I/O) se beneficia de las Reglas 4a y 4b y obtiene el 99% de la CPU al regresar continuamente a su mismo nivel de prioridad con su allotment intacto, mientras que el Trabajo 1 (sin I/O) utiliza menos CPU debido a que no puede aprovechar estas reglas y su tiempo de ejecución es interrumpido por el otro trabajo.
+✅   Este comando configura una situación donde el Trabajo 2 (que hace I/O) se beneficia de las Reglas 4a y 4b y obtiene el 99% de la CPU al regresar continuamente a su mismo nivel de prioridad con su allotment intacto, mientras que el Trabajo 1 (sin I/O) utiliza menos CPU debido a que no puede aprovechar estas reglas y su tiempo de ejecución es interrumpido por el otro trabajo.
 
    `./mlfq.py --jlist 0,100,0:50,20,5 -q 10 -S`
 
    ![Captura de pantalla de la aplicación](images/punto4.png)
 
-7. Given a system with a quantum length of 10 ms in its highest queue, how often would you have to boost jobs back to the highest priority level (with the `-B` flag) in order to guarantee that a single longrunning (and potentially-starving) job gets at least 5% of the CPU?
+5. Given a system with a quantum length of 10 ms in its highest queue, how often would you have to boost jobs back to the highest priority level (with the `-B` flag) in order to guarantee that a single longrunning (and potentially-starving) job gets at least 5% of the CPU?
 
-   Para garantizar que el trabajo largo obtenga al menos 5% de la CPU, el boosting debe ocurrir con una frecuencia que permita que el trabajo largo tenga al menos 10 ms (1 quantum) de CPU al menos 5% del tiempo.
+ ✅  Para garantizar que el trabajo largo obtenga al menos 5% de la CPU, el boosting debe ocurrir con una frecuencia que permita que el trabajo largo tenga al menos 10 ms (1 quantum) de CPU al menos 5% del tiempo.
 
    Dado que el quantum es de 10 ms, y queremos que el trabajo obtenga al menos 5% del tiempo, se requiere que en cada intervalo de 20 unidades de tiempo (de 10 ms), el trabajo largo obtenga al menos 1 quantum (10 ms) de tiempo de CPU.
 
@@ -64,10 +66,10 @@ with the -S flag) to game the scheduler and obtain 99% of the CPU over a particu
 
    ![Captura de pantalla de la aplicación](images/punto5.png)
 
-9. One question that arises in scheduling is which end of a queue to add a job that just finished I/O; the -I flag changes this behavior
+6. One question that arises in scheduling is which end of a queue to add a job that just finished I/O; the -I flag changes this behavior
 for this scheduling simulator. Play around with some workloads and see if you can see the effect of this flag.
 
-   en las imagenes observamos que el tiempo con -I es menor usando el siguiente comando 
+✅   en las imagenes observamos que el tiempo con -I es menor usando el siguiente comando 
 
    `python mlfq.py -n 2 -Q 10,20 -A 1,2 -j 2 -l 0,50,5:0,50,0 -s 2 -c -I`
    1. Sin -I
