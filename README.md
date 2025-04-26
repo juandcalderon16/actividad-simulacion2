@@ -28,6 +28,7 @@ El Job 1 tuvo que esperar 1 unidad, pero se ejecutó de corrido porque no hubo c
 El quantum de 10 fue más que suficiente, ya que ningún trabajo necesitó tanto tiempo seguido.
 
    ![Captura de pantalla de la aplicación](images/punto2.png)
+      ![Captura de pantalla de la aplicación](images/punto2,2.png)
 
 4. How would you configure the scheduler parameters to behave just like a round-robin scheduler?
 
